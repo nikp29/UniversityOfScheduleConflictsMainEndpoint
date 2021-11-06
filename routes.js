@@ -1,5 +1,11 @@
 import express from "express";
-import { checkIfAuthenticated } from "./firebase/authentication";
+import { checkIfAuthenticated } from "./firebase/authentication.js";
+import {
+    getSchedule,
+    getSchedules,
+    updateSchedule,
+} from "./controller/schedule.js";
+import { createAccount } from "./controller/account.js";
 
 var router = express.Router();
 
