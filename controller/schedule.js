@@ -2,10 +2,9 @@ import admin from "../firebase/config.js";
 
 const getSchedule = async (req, res) => {
     const { email } = req.body;
-    console.log(req);
     if (!email) {
         res.status(400).json({
-            message: "Invalid email",
+            message: "Email not provided",
         });
         return;
     }
