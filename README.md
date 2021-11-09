@@ -1,7 +1,6 @@
 # UniversityOfScheduleConflictsMainEndpoint
 ## Setup
-* Get credentials from Nikhil
-* `export GOOGLE_APPLICATION_CREDENTIALS="/Users/<user>/Documents/Programming/UniversityOfScheduleConflictsMainEndpoint/firebase/account_credential.json"`
+* Get .env file from Nikhil
 * `npm install`
 * `npm run dev`
 
