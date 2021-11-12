@@ -4,7 +4,8 @@
 
 ### API call
 * Endpoint is `localhost:8080/merge`
-* This endpoint accepts a json via body. The json should have an `"eventLen"` integer and a `schedules` 2D array containing a list of schedules.
+* Accepts a json body. The json should have an `"eventLen"` integer and a `schedules` 2D array containing a list of schedules.
+* Returns a json containg a `"mergedSchedule"` array.
 
 ```
 {
