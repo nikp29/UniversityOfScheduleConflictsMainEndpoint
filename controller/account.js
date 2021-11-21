@@ -19,7 +19,7 @@ const createAccount = async (req, res) => {
             })
             .catch((error) => {
                 res.status(500).json({
-                    data: error.message,
+                    error: error.message,
                 });
             });
         return;

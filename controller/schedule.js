@@ -4,7 +4,7 @@ const getSchedule = async (req, res) => {
     const { email } = req.body;
     if (!email) {
         res.status(400).json({
-            message: "Email not provided",
+            error: "Email not provided",
         });
         return;
     }
@@ -15,7 +15,7 @@ const getSchedule = async (req, res) => {
         .then((firestoreDocument) => {
             if (!firestoreDocument.exists) {
                 res.status(404).json({
-                    data: "User does not exist",
+                    error: "User does not exist",
                 });
                 return;
             }
@@ -26,7 +26,7 @@ const getSchedule = async (req, res) => {
         })
         .catch((error) => {
             res.status(500).json({
-                data: error.message,
+                error: error.message,
             });
         });
 };
@@ -69,7 +69,7 @@ const updateSchedule = async (req, res) => {
         })
         .catch((error) => {
             res.status(500).json({
-                data: error.message,
+                error: error.message,
             });
         });
     if (schedule.length === 672) {
@@ -78,7 +78,7 @@ const updateSchedule = async (req, res) => {
         });
     } else {
         res.status(411).json({
-            data: "schedule array must be 672 time slots long",
+            error: "schedule array must be 672 time slots long",
         });
     }
 };
