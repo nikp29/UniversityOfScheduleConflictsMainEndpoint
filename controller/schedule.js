@@ -25,7 +25,7 @@ const getSchedule = async (req, res) => {
             });
         })
         .catch((error) => {
-            res.status(400).json({
+            res.status(500).json({
                 data: error.message,
             });
         });
@@ -48,9 +48,9 @@ const getSchedules = async (req, res) => {
                 }
             })
             .catch((error) => {
-                res.status(500).json({
-                    data: error.message,
-                });
+                console.log(
+                    "Email does not exist: " + emailList[i] + "\n" + error
+                );
             });
     }
     res.status(200).json({
@@ -68,7 +68,9 @@ const updateSchedule = async (req, res) => {
             schedule: schedule,
         })
         .catch((error) => {
-            console.error("Error editing document: ", error);
+            res.status(500).json({
+                data: error.message,
+            });
         });
     if (schedule.length === 672) {
         res.status(200).json({
