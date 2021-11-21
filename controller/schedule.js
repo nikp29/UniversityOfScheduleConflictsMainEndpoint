@@ -48,20 +48,14 @@ const getSchedules = async (req, res) => {
                 }
             })
             .catch((error) => {
-                res.status(400).json({
+                res.status(500).json({
                     data: error.message,
                 });
             });
     }
-    if (scheduleList.length === 672) {
-        res.status(200).json({
-            scheduleList: scheduleList,
-        });
-    } else {
-        res.status(411).json({
-            data: "schedule array must be 672 time slots long",
-        });
-    }
+    res.status(200).json({
+        scheduleList: scheduleList,
+    });
 };
 
 const updateSchedule = async (req, res) => {
@@ -74,11 +68,19 @@ const updateSchedule = async (req, res) => {
             schedule: schedule,
         })
         .catch((error) => {
-            console.error("Error editing document: ", error);
+            res.status(500).json({
+                data: error.message,
+            });
         });
-    res.status(200).json({
-        schedule: schedule,
-    });
+    if (schedule.length === 672) {
+        res.status(200).json({
+            schedule: schedule,
+        });
+    } else {
+        res.status(411).json({
+            data: "schedule array must be 672 time slots long",
+        });
+    }
 };
 
 export { getSchedule, getSchedules, updateSchedule };

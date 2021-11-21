@@ -13,12 +13,18 @@ const createAccount = async (req, res) => {
             },
             { merge: true }
         );
-        res.status(200).json({
-            message: "success",
-        });
+        res.status(200)
+            .json({
+                message: "success",
+            })
+            .catch((error) => {
+                res.status(500).json({
+                    data: error.message,
+                });
+            });
         return;
     }
-    res.status(400).json({
+    res.status(409).json({
         message: "account already exists",
     });
 };
