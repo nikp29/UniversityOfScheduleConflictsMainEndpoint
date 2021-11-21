@@ -68,9 +68,7 @@ const updateSchedule = async (req, res) => {
             schedule: schedule,
         })
         .catch((error) => {
-            res.status(500).json({
-                data: error.message,
-            });
+            console.error("Error editing document: ", error);
         });
     if (schedule.length === 672) {
         res.status(200).json({
