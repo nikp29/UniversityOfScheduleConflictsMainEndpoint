@@ -3,9 +3,10 @@ import admin from "../firebase/config.js";
 const createAccount = async (req, res) => {
     const email = req.email;
     const usersRef = admin.firestore().collection("users");
-    let document = await usersRef.doc(email);
-    if (!document.get()) {
-        await document.set(
+    let documentRef = await usersRef.doc(email);
+    let document = await documentRef.get();
+    if (!document.data()) {
+        await documentRef.set(
             {
                 email,
                 schedule: new Array(24 * 4 * 7).fill(0),

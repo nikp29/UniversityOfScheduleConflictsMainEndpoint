@@ -53,9 +53,15 @@ const getSchedules = async (req, res) => {
                 });
             });
     }
-    res.status(200).json({
-        scheduleList: scheduleList,
-    });
+    if (scheduleList.length === 672) {
+        res.status(200).json({
+            scheduleList: scheduleList,
+        });
+    } else {
+        res.status(411).json({
+            data: "schedule array must be 672 time slots long",
+        });
+    }
 };
 
 const updateSchedule = async (req, res) => {
