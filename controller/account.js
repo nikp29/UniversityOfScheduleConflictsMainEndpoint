@@ -5,7 +5,7 @@ const createAccount = async (req, res) => {
     const usersRef = admin.firestore().collection("users");
     let documentRef = await usersRef.doc(email);
     let document = await documentRef.get();
-    if (!document.data()) {
+    if (!document || !document.exists) {
         await documentRef.set(
             {
                 email,
