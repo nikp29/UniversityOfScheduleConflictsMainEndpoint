@@ -25,7 +25,7 @@ const createAccount = async (req, res) => {
         return;
     }
     res.status(409).json({
-        message: "account already exists",
+        error: "account already exists",
     });
 };
 
