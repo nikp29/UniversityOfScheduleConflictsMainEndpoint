@@ -12,3 +12,6 @@ curl 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?
 -H 'Content-Type: application/json' \
 --data-binary '{"email":"urmom@gmail.com","password":"welcome123","returnSecureToken":true}'
 ```
+
+## Deploy current head
+`git push heroku HEAD:master`
