@@ -72,13 +72,13 @@ const updateSchedule = async (req, res) => {
                 error: error.message,
             });
         });
-    if (schedule.length === 672) {
+    if (schedule.length === 364) {
         res.status(200).json({
             schedule: schedule,
         });
     } else {
         res.status(411).json({
-            error: "schedule array must be 672 time slots long",
+            error: "schedule array must be 364 time slots long",
         });
     }
 };

@@ -20,7 +20,7 @@ public class ScheduleController {
             }
         }
 
-        Scheduler s = new Scheduler(24 * 4 * 7);
+        Scheduler s = new Scheduler(13 * 4 * 7);
         int[] merged = s.searchForTimes(schedules, eventLen);
 
         Map<String, Object> output = new HashMap<String, Object>();

@@ -9,7 +9,7 @@ const createAccount = async (req, res) => {
         await documentRef.set(
             {
                 email,
-                schedule: new Array(24 * 4 * 7).fill(0),
+                schedule: new Array(13 * 4 * 7).fill(0),
             },
             { merge: true }
         );

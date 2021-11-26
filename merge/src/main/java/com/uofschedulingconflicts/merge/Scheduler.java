@@ -3,7 +3,7 @@ package com.uofschedulingconflicts.merge;
 import java.util.concurrent.*;
 
 public class Scheduler {
-    private int arrLen = 24 * 4 * 7;
+    private int arrLen = 13 * 4 * 7;
 
     public Scheduler(int arrLen) { // for testing purposes only.
         this.arrLen = arrLen;
