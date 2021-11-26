@@ -14,4 +14,5 @@ curl 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?
 ```
 
 ## Deploy current head
+`heroku git:remote -a uofschedulingconflictsapi`
 `git push heroku HEAD:master`

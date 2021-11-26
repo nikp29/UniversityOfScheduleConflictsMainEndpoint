@@ -19,3 +19,7 @@
     ]
 }
 ```
+
+## Deploy current head
+`heroku git:remote -a uofschedulingconflictsjavaapi`
+`git subtree push --prefix merge heroku master`
