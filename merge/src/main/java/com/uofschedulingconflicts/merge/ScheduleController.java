@@ -20,12 +20,14 @@ public class ScheduleController {
         int[][]schedules = new int[schedulesAL.size()][];
         for(int i = 0; i < schedules.length; i++){
             if (schedulesAL.get(i).size() != 13 * 4 *7){
-                System.out.println(schedulesAL.get(i)   .size() + "  " + (13 * 4* 7));
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Incorrect Array Size");
             }
 
             schedules[i] = new int[schedulesAL.get(i).size()];
             for (int j = 0; j < schedules[i].length; j++){
+                if (schedulesAL.get(i).get(j) != 0 && schedulesAL.get(i).get(j) != 1) {
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid Array Entry");
+                }
                 schedules[i][j] = schedulesAL.get(i).get(j);
             }
         }
