@@ -72,13 +72,13 @@ const updateSchedule = async (req, res) => {
                 error: error.message,
             });
         });
-    if (schedule.length === 7 && schedule[0].length === 13 * 4) {
+    if (schedule.length === 91) {
         res.status(200).json({
             schedule: schedule,
         });
     } else {
         res.status(411).json({
-            error: "schedule array must be a 2d array with first dimension length 7 and second dimension length 52",
+            error: "schedule array must be 91 time slots long",
         });
     }
 };
