@@ -1,6 +1,6 @@
 import admin from "./config.js";
 
-export const checkIfAuthenticated = async (req, res, next) => {
+export const checkIfAuthenticated = async(req, res, next) => {
     // console.log("Checking authentication");
     if (
         req.headers.authorization &&
