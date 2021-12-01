@@ -2,6 +2,11 @@ import admin from "../firebase/config.js";
 
 const createAccount = async (req, res) => {
     const email = req.email;
+    let schedule = new Array(7);
+
+    for (var i = 0; i < schedule.length; i++) {
+        schedule[i] = new Array(13 * 4).fill(0);
+    }
     const usersRef = admin.firestore().collection("users");
     let documentRef = await usersRef.doc(email);
     let document = await documentRef.get();
@@ -9,7 +14,7 @@ const createAccount = async (req, res) => {
         await documentRef.set(
             {
                 email,
-                schedule: new Array(13 * 4 * 7).fill(0),
+                schedule,
             },
             { merge: true }
         );
