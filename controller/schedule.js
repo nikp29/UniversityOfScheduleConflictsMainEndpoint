@@ -36,11 +36,14 @@ const getSchedule = async (req, res) => {
 };
 
 const getSchedules = async (req, res) => {
+    console.log("getSchedules");
     res.header("Access-Control-Allow-Origin", "*");
-    const { emailList } = req.body;
+    console.log(req.body);
+    const emailList = req.body.emailList;
     const usersRef = admin.firestore().collection("users");
     var scheduleList = [];
     for (let i = 0; i < emailList.length; i++) {
+        // if (emailList[i] == "")
         await usersRef
             .doc(emailList[i])
             .get()
