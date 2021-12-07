@@ -11,7 +11,7 @@ var router = express.Router();
 
 router.post("/getschedule", getSchedule);
 router.post("/schedules", getSchedules);
-router.put("/schedule", checkIfAuthenticated, updateSchedule);
+router.post("/schedule", checkIfAuthenticated, updateSchedule);
 router.post("/account", checkIfAuthenticated, createAccount);
 
 export default router;
