@@ -13,6 +13,7 @@ import java.util.*;
 public class ScheduleController {
 
     @RequestMapping("/merge")
+    @CrossOrigin(origins = "http://localhost:3000")
     public @ResponseBody Map<String, Object> mergeSchedules(@RequestBody Map<String, Object> input) {
         ArrayList<ArrayList<Integer>> schedulesAL = (ArrayList<ArrayList<Integer>>) input.get("schedules");
         int eventLen = (int) input.get("eventLen");
