@@ -1,6 +1,8 @@
 import admin from "../firebase/config.js";
 
 const createAccount = async (req, res) => {
+    console.log("createAccount");
+    res.header("Access-Control-Allow-Origin", "*");
     const email = req.email;
     const usersRef = admin.firestore().collection("users");
     let documentRef = await usersRef.doc(email);

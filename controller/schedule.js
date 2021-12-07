@@ -2,6 +2,7 @@ import admin from "../firebase/config.js";
 
 const getSchedule = async (req, res) => {
     const { email } = req.body;
+    res.header("Access-Control-Allow-Origin", "*");
     if (!email) {
         res.status(400).json({
             error: "Email not provided",
@@ -32,6 +33,7 @@ const getSchedule = async (req, res) => {
 };
 
 const getSchedules = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const { emailList } = req.body;
     const usersRef = admin.firestore().collection("users");
     var scheduleList = [];
@@ -59,6 +61,7 @@ const getSchedules = async (req, res) => {
 };
 
 const updateSchedule = async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
     const email = req.email;
     const { schedule } = req.body;
     const usersRef = admin.firestore().collection("users");
