@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import routes from "./routes.js";
 
 const server = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 server.use(bodyParser.json());
 server.use(
     cors({
