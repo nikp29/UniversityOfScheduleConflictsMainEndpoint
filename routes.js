@@ -9,8 +9,8 @@ import { createAccount } from "./controller/account.js";
 
 var router = express.Router();
 
-router.get("/schedule", getSchedule);
-router.get("/schedules", getSchedules);
+router.post("/getschedule", getSchedule);
+router.post("/schedules", getSchedules);
 router.put("/schedule", checkIfAuthenticated, updateSchedule);
 router.post("/account", checkIfAuthenticated, createAccount);
 

@@ -1,7 +1,10 @@
 import admin from "../firebase/config.js";
 
 const getSchedule = async (req, res) => {
-    const { email } = req.body;
+    console.log("getSchedule");
+
+    const email = req.body.email;
+    console.log(req.body.email);
     res.header("Access-Control-Allow-Origin", "*");
     if (!email) {
         res.status(400).json({
