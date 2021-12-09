@@ -31,7 +31,8 @@ public class Comparison extends Thread {
             }
         }
         if (allGood)
-            goodTimes[currTime] = 2;
+            goodTimes[currTime] = 0;
+        else goodTimes[currTime] = 1;
     }
 
     /**
